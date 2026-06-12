@@ -1,221 +1,71 @@
 # LabFlow — CRM e Automação para Laboratórios Clínicos
 
-> Case study público de uma plataforma desenvolvida para organizar atendimentos via WhatsApp, automatizar solicitações de orçamento, ler pedidos médicos com OCR e gerar orçamentos em PDF para laboratórios de análises clínicas.
-
-## Visão geral
-
-O **LabFlow** é uma plataforma web criada para centralizar e automatizar parte da operação comercial e de atendimento de laboratórios clínicos.
-
-O sistema foi pensado para resolver problemas comuns na rotina de laboratórios:
-
-* Alto volume de mensagens no WhatsApp.
-* Solicitações de orçamento feitas manualmente.
-* Dificuldade para organizar conversas por tipo de atendimento.
-* Necessidade de padronizar respostas automáticas.
-* Orçamentos baseados em pedidos médicos enviados por foto ou PDF.
-* Diferentes tabelas de preço, como particular, aposentados e convênios.
-* Falta de um painel simples para acompanhamento operacional.
-
-A solução combina **CRM**, **automação de WhatsApp**, **OCR**, **geração de PDF**, **controle de usuários**, **multiempresa** e **configurações administrativas**.
+> Case study público de uma plataforma criada para centralizar atendimentos via WhatsApp, automatizar solicitações de orçamento, ler pedidos médicos com OCR e gerar orçamentos em PDF para laboratórios de análises clínicas.
 
 ---
 
-## Objetivo do projeto
+## Visão geral
 
-Criar uma plataforma SaaS/CRM para laboratórios de análises clínicas, permitindo que a equipe consiga:
+O **LabFlow** é uma plataforma web voltada para laboratórios clínicos que precisam organizar atendimentos, reduzir trabalho manual e acompanhar melhor o fluxo comercial vindo do WhatsApp.
 
-1. Receber e organizar mensagens vindas do WhatsApp.
-2. Classificar conversas por tipo de atendimento.
-3. Enviar links públicos para solicitação de orçamento.
-4. Receber pedido médico por imagem ou PDF.
-5. Ler automaticamente o pedido médico com OCR.
-6. Sugerir exames encontrados no pedido.
-7. Permitir revisão manual dos exames.
-8. Gerar orçamento em PDF.
-9. Enviar o orçamento pelo WhatsApp.
-10. Configurar respostas automáticas e dados da empresa.
-11. Trabalhar com tabelas de preço diferentes, como particular e aposentados.
+A solução combina:
+
+* CRM de conversas;
+* automação de WhatsApp;
+* solicitação pública de orçamento;
+* leitura de pedido médico com OCR;
+* revisão manual de exames;
+* tabelas de preço;
+* geração de PDF;
+* envio de orçamento pelo WhatsApp;
+* configurações administrativas;
+* estrutura multiempresa.
+
+---
+
+## Problema
+
+Laboratórios recebem muitas solicitações pelo WhatsApp e, na prática, grande parte do processo ainda é manual:
+
+* pacientes enviam fotos de pedidos médicos;
+* a recepção precisa interpretar exames;
+* valores são consultados em tabelas separadas;
+* orçamentos são montados manualmente;
+* conversas ficam espalhadas no WhatsApp;
+* faltam indicadores de conversão e acompanhamento.
+
+O LabFlow foi criado para transformar esse fluxo em um processo mais organizado, rastreável e automatizado.
 
 ---
 
 ## Stack utilizada
 
-### Frontend
-
-* Next.js
-* React
-* TypeScript
-* Tailwind CSS
-* Vercel
-
-### Backend
-
-* Node.js
-* Express
-* TypeScript
-* Render
-
-### Banco e autenticação
-
-* Supabase
-* Supabase Auth
-* Supabase Database
-* Supabase Storage
-
-### Integrações e automações
-
-* WhatsApp Gateway
-* OCR para leitura de pedidos médicos
-* Google Sheets como base inicial de exames
-* Geração de PDF
+| Camada             | Tecnologias                                                  |
+| ------------------ | ------------------------------------------------------------ |
+| Frontend           | Next.js, React, TypeScript, Tailwind CSS, Vercel             |
+| Backend            | Node.js, Express, TypeScript, Render                         |
+| Banco/Auth/Storage | Supabase, Supabase Auth, Supabase Database, Supabase Storage |
+| Integrações        | WhatsApp Gateway, OCR, Google Sheets, geração de PDF         |
 
 ---
 
 ## Principais funcionalidades
 
-### Autenticação e controle de acesso
-
-A plataforma possui login, cadastro, perfil de usuário e controle básico de permissões.
-
-Perfis previstos:
-
-* Administrador
-* Recepção
-* Super administrador
-
-Cada usuário fica vinculado a uma organização e, opcionalmente, a uma unidade do laboratório.
-
----
-
-### Painel operacional
-
-O painel centraliza os principais módulos da operação:
-
-* Dashboard
-* Conversas
-* Orçamentos
-* Dúvidas
-* Agendamentos
-* Reclamações
-* Pacientes
-* Relatórios
-* Configurações
-
----
-
-### Conversas via WhatsApp
-
-O sistema recebe mensagens vindas do WhatsApp e organiza os atendimentos em um painel.
-
-As conversas podem ser classificadas por contexto, como:
-
-* Orçamento
-* Agendamento
-* Dúvida
-* Reclamação
-* Atendimento humano
-
----
-
-### Solicitação pública de orçamento
-
-O paciente recebe um link público para solicitar orçamento.
-
-Nesse link, ele pode:
-
-* Informar nome e data de nascimento.
-* Enviar foto ou PDF do pedido médico.
-* Selecionar exames manualmente.
-* Indicar se é aposentado.
-* Informar se possui convênio.
-* Enviar a solicitação para análise da equipe.
-
----
-
-### OCR de pedido médico
-
-Ao enviar o pedido médico, o sistema realiza leitura automática do arquivo e tenta identificar os exames solicitados.
-
-O fluxo é:
-
-1. Paciente envia imagem ou PDF.
-2. Sistema salva o arquivo.
-3. OCR extrai o texto.
-4. O texto é limpo e analisado.
-5. O sistema sugere exames compatíveis.
-6. O atendente revisa a lista antes de gerar o orçamento.
-
----
-
-### Edição de orçamento
-
-A equipe pode revisar e editar o orçamento antes de gerar o PDF.
-
-Na tela de edição é possível:
-
-* Alterar dados do paciente.
-* Visualizar texto extraído pelo OCR.
-* Abrir o pedido médico original.
-* Adicionar exames.
-* Remover exames.
-* Alterar tabela de preço.
-* Salvar alterações.
-
----
-
-### Tabelas de preço
-
-O sistema foi preparado para trabalhar com diferentes tabelas de preço.
-
-Exemplos:
-
-* Particular
-* Aposentados / AAPI
-* Convênios
-* Tabelas personalizadas
-
-Na área pública, o paciente não vê nomes internos como “PART” ou “AAPI”. Ele apenas informa se é aposentado ou se possui convênio.
-
-Internamente, o sistema seleciona a tabela correta para calcular o orçamento.
-
----
-
-### Geração de PDF
-
-Após revisão dos exames, o sistema gera um PDF de orçamento com:
-
-* Dados do paciente.
-* Lista de exames.
-* Prazo.
-* Jejum.
-* Valores.
-* Total do orçamento.
-* Identidade visual do laboratório.
-
----
-
-### Envio pelo WhatsApp
-
-Depois de gerar o PDF, a equipe pode enviar o orçamento ao paciente pelo WhatsApp diretamente pelo painel.
-
----
-
-### Reclamações e ouvidoria
-
-O sistema também possui fluxo para reclamações/ouvidoria, permitindo gerar link público para o paciente registrar uma manifestação.
-
----
-
-### Configurações da empresa
-
-Administradores podem configurar informações da empresa, como:
-
-* Nome do laboratório.
-* Logo.
-* Unidades.
-* Endereço.
-* Telefone.
-* Unidade padrão.
+* Cadastro e login com vínculo por empresa, unidade e função.
+* Painel operacional com dashboard, conversas, orçamentos e configurações.
+* Central de conversas recebidas pelo WhatsApp.
+* Controle para ativar/desativar robô por conversa.
+* Atendimento humano diretamente pelo painel.
+* Link público para solicitação de orçamento.
+* Upload de foto/PDF do pedido médico.
+* Leitura automática do pedido com OCR.
+* Sugestão automática de exames identificados.
+* Seleção manual de exames.
+* Revisão e edição dos orçamentos.
+* Tabelas de preço como Particular, AAPI e futuras tabelas de convênios.
+* Geração de PDF personalizado.
+* Envio do orçamento pelo WhatsApp.
+* Configurações de empresa, WhatsApp e respostas automáticas.
 
 ---
 
@@ -229,8 +79,8 @@ flowchart TD
     D --> E[Paciente preenche dados e envia pedido médico]
     E --> F[OCR extrai texto do pedido]
     F --> G[Sistema sugere exames]
-    G --> H[Atendente revisa orçamento]
-    H --> I[Atendente escolhe tabela de preço]
+    G --> H[Equipe revisa orçamento]
+    H --> I[Tabela de preço é aplicada]
     I --> J[Sistema gera PDF]
     J --> K[Orçamento enviado pelo WhatsApp]
     K --> L[Atendimento concluído]
@@ -255,112 +105,255 @@ flowchart LR
 
 ---
 
-## Screenshots
-### Cadastro e vínculo com empresa
+# Demonstração da plataforma
 
-A plataforma possui uma tela de cadastro onde o usuário cria seu acesso vinculado a uma empresa, unidade e função operacional.
+## Cadastro e vínculo com empresa
 
-Esse fluxo permite preparar a estrutura para uso multiempresa, separando usuários por organização e controlando permissões por perfil, como administrador ou recepção.
+A tela de cadastro permite criar usuários vinculados a uma empresa, unidade e função operacional, preparando o sistema para uso multiempresa.
+
+Perfis como **administrador** e **recepção** podem ter acessos diferentes dentro do painel.
 
 ![Cadastro no LabFlow](assets/screenshots/cadastro.png)
 
-### Login
+---
 
-> Inserir print da tela de login.
+## Dashboard gerencial
 
-![Login](assets/screenshots/login.png)
+O dashboard apresenta uma visão executiva da operação, com métricas de conversas, orçamentos, agendamentos, reclamações e funil comercial.
+
+![Dashboard gerencial do LabFlow](assets/screenshots/dashboard.png)
+
+Além dos indicadores gerais, o painel pode acompanhar:
+
+* orçamentos feitos;
+* orçamentos realizados;
+* orçamentos não realizados;
+* taxa de conversão;
+* desempenho diário, semanal e mensal;
+* oportunidades de follow-up.
+
+Ao clicar em orçamentos não realizados, a equipe pode acessar os pacientes pendentes, visualizar detalhes do orçamento e acionar um follow-up automático pelo WhatsApp.
+
+Exemplo de mensagem:
+
+> Olá! Tudo bem? 😊
+> Passando para lembrar sobre o orçamento dos seus exames.
+> Caso ainda tenha interesse, estamos à disposição para ajudar com o agendamento e esclarecer qualquer dúvida.
+> Se desejar dar continuidade, podemos verificar uma condição especial para facilitar a realização dos exames.
 
 ---
 
-### Dashboard
+## Gestão de conversas
 
-> Inserir print do dashboard principal.
+O LabFlow centraliza as conversas recebidas pelo WhatsApp em um painel operacional.
 
-![Dashboard](assets/screenshots/dashboard.png)
+![Painel de conversas do LabFlow](assets/screenshots/conversa1.png)
 
----
+Na listagem, a equipe consegue visualizar:
 
-### Conversas
+* paciente;
+* telefone anonimizado;
+* categoria;
+* status;
+* última mensagem;
+* data de atualização;
+* ações disponíveis.
 
-> Inserir print da listagem de conversas.
+Também é possível filtrar conversas por situação, como **aguardando orçamento**, **aguardando agendamento** ou **aguardando atendente humano**.
 
-![Conversas](assets/screenshots/conversas.png)
+O painel permite controlar o robô por conversa:
 
----
-
-### Solicitação pública de orçamento
-
-> Inserir print do link público usado pelo paciente.
-
-![Orçamento público](assets/screenshots/orcamento-publico.png)
-
----
-
-### OCR e sugestão de exames
-
-> Inserir print mostrando o texto lido e os exames identificados.
-
-![OCR](assets/screenshots/ocr.png)
+* **Ativar robô:** retorna o atendimento para o fluxo automatizado.
+* **Desativar robô:** pausa o bot para atendimento manual.
+* **Abrir conversa:** permite ver o histórico e responder pelo painel.
+* **Concluir atendimento:** finaliza a solicitação.
 
 ---
 
-### Edição de orçamento
+## Atendimento individual
 
-> Inserir print da tela de edição de orçamento.
+Ao abrir uma conversa, o atendente visualiza o histórico completo e pode responder diretamente pelo painel.
 
-![Editar orçamento](assets/screenshots/editar-orcamento.png)
+![Atendimento individual pelo painel](assets/screenshots/conversa2.png)
 
----
+O fluxo pode começar com o bot enviando o menu inicial. Quando o paciente escolhe falar com um atendente, o sistema sinaliza a conversa para atendimento humano.
 
-### Detalhes do orçamento
-
-> Inserir print do orçamento gerado no painel.
-
-![Detalhes do orçamento](assets/screenshots/detalhes-orcamento.png)
+Isso permite combinar automação com atendimento personalizado: o robô resolve etapas repetitivas, enquanto a equipe assume casos específicos, dúvidas sensíveis ou oportunidades comerciais.
 
 ---
 
-### Configurações
+## Solicitação pública de orçamento
 
-> Inserir print da tela de configurações da empresa.
+O paciente pode receber um link público para solicitar orçamento sem depender de troca manual de mensagens.
 
-![Configurações](assets/screenshots/configuracoes.png)
+Na primeira etapa, ele escolhe entre:
+
+* enviar foto/PDF do pedido médico;
+* selecionar exames manualmente.
+
+![Solicitação de orçamento - opções iniciais](assets/screenshots/solicitarorcamento1.png)
 
 ---
 
-## Desafios técnicos resolvidos
+## Preenchimento e seleção de exames
 
-### 1. Integração com WhatsApp
+O paciente informa seus dados básicos e pode selecionar condições especiais, como aposentado ou convênio.
 
-O projeto exigiu a criação de um fluxo em que mensagens recebidas pelo WhatsApp fossem organizadas em conversas no painel, preservando contexto e permitindo transição para atendimento humano.
+![Solicitação de orçamento - preenchimento e exames](assets/screenshots/solicitarorcamento2.png)
 
-### 2. OCR para pedidos médicos
+Ao selecionar exames manualmente, os itens aparecem na lateral em **Exames selecionados**, permitindo revisar, remover ou complementar a lista antes do envio.
 
-A leitura automática de pedidos médicos exigiu tratamento de texto, normalização, identificação de termos e correspondência com uma base de exames.
+---
 
-### 3. Matching de exames
+## Upload do pedido médico
 
-O sistema cruza o texto extraído com a base de exames, considerando sinônimos, abreviações, nomes populares e termos equivalentes.
+Além da seleção manual, o paciente pode enviar foto ou PDF do pedido médico.
 
-### 4. Tabelas de preço
+![Solicitação de orçamento - envio do pedido médico](assets/screenshots/solicitarorcamento3.png)
 
-O orçamento precisava suportar tabelas diferentes, como particular e aposentados, sem expor termos internos para o paciente.
+O sistema orienta o paciente sobre a qualidade do arquivo, já que pedidos digitais ou impressos legíveis tendem a ter melhor leitura automática.
 
-### 5. Multiempresa
+---
 
-A estrutura foi preparada para reaproveitamento em outros laboratórios, com organização, unidade, usuários e configurações separadas.
+## OCR e identificação dos exames
+
+Após o upload, o LabFlow realiza a leitura automática do pedido médico.
+
+![Solicitação de orçamento - texto extraído e exames identificados](assets/screenshots/solicitarorcamento4.png)
+
+O sistema extrai o texto do documento, cruza os termos com a base de exames e sugere os exames encontrados. Mesmo quando a leitura não é perfeita, a equipe pode revisar, remover ou adicionar itens antes de finalizar.
+
+---
+
+## Gestão interna de orçamentos
+
+Depois que o paciente envia a solicitação, o orçamento aparece automaticamente no painel interno.
+
+![Lista de orçamentos](assets/screenshots/orcamento1.png)
+
+A equipe consegue acompanhar:
+
+* paciente;
+* quantidade de exames;
+* status;
+* origem da solicitação;
+* tabela aplicada;
+* data;
+* ações disponíveis.
+
+A origem pode ser **Upload**, quando veio de um pedido médico, ou **Manual**, quando os exames foram selecionados diretamente.
+
+---
+
+## Detalhes do orçamento
+
+Ao abrir um orçamento, o atendente visualiza os dados completos antes de enviar ao paciente.
+
+![Detalhes do orçamento](assets/screenshots/orcamento2.png)
+
+A tela mostra:
+
+* dados do paciente;
+* status;
+* origem;
+* tabela de preço;
+* valor total;
+* lista de exames;
+* código interno;
+* TUSS;
+* prazo;
+* jejum;
+* valor individual.
+
+A partir dela, é possível editar o orçamento, gerar PDF, enviar pelo WhatsApp e concluir o atendimento.
+
+---
+
+## Edição e revisão do orçamento
+
+Antes de gerar o PDF, a equipe pode revisar o orçamento.
+
+![Edição de orçamento](assets/screenshots/orcamento3.png)
+
+Na edição, o atendente pode:
+
+* alterar dados do paciente;
+* trocar a tabela de preço;
+* visualizar o texto extraído pelo OCR;
+* abrir o pedido médico original;
+* adicionar ou remover exames;
+* recalcular valores;
+* salvar alterações.
+
+A troca de tabela permite recalcular o orçamento conforme a condição correta, como Particular, AAPI ou futuras tabelas de convênios.
+
+---
+
+## PDF personalizado e envio pelo WhatsApp
+
+Após a revisão, o sistema gera um PDF personalizado com identidade visual do laboratório, dados do paciente, exames, prazos, jejum, valores individuais e total.
+
+Em seguida, o orçamento pode ser enviado diretamente pelo WhatsApp para o paciente que realizou a solicitação.
+
+Esse fluxo reduz retrabalho, evita montagem manual de PDF e mantém o histórico do atendimento centralizado.
+
+---
+
+## Configurações do sistema
+
+A área de configurações centraliza ajustes operacionais da plataforma.
+
+![Configurações do LabFlow](assets/screenshots/configuracoes.png)
+
+Nela, o administrador pode acompanhar a integração com WhatsApp, testar conexão, reconectar a sessão, editar dados da empresa e configurar respostas automáticas.
+
+Essa área também serve como base para futuras configurações administrativas, como:
+
+* tabelas de preço;
+* convênios;
+* unidades;
+* permissões;
+* modelos de PDF;
+* horários de atendimento;
+* regras comerciais;
+* integrações externas.
+
+---
+
+## Diferenciais técnicos
+
+### WhatsApp integrado ao painel
+
+As mensagens recebidas pelo WhatsApp são registradas no painel, com controle de status, categoria e transição entre robô e atendimento humano.
+
+### OCR aplicado a pedidos médicos
+
+O sistema extrai texto de imagens ou PDFs de pedidos médicos e tenta identificar os exames solicitados automaticamente.
+
+### Matching de exames
+
+Os termos lidos pelo OCR são cruzados com a base de exames, permitindo sugerir exames ao paciente ou à equipe.
+
+### Tabelas de preço
+
+O orçamento suporta diferentes tabelas, como Particular e AAPI, sem expor termos internos para o paciente na área pública.
+
+### Estrutura multiempresa
+
+A plataforma foi preparada para reaproveitamento em outros laboratórios, separando organização, unidade, usuários e configurações.
 
 ---
 
 ## Status do projeto
 
-O projeto está em fase de MVP funcional/piloto operacional.
+O projeto está em fase de MVP funcional e piloto operacional.
 
-Funcionalidades já implementadas:
+### Implementado
 
 * Login e cadastro.
 * Painel operacional.
-* Gestão de conversas.
+* Conversas via WhatsApp.
+* Atendimento humano pelo painel.
 * Solicitação pública de orçamento.
 * Upload de pedido médico.
 * OCR.
@@ -368,18 +361,18 @@ Funcionalidades já implementadas:
 * Edição de orçamento.
 * Tabelas de preço.
 * Geração de PDF.
-* Envio por WhatsApp.
+* Envio pelo WhatsApp.
 * Configurações da empresa.
 * Reclamações/ouvidoria.
 
-Próximos passos planejados:
+### Próximos passos
 
 * Painel completo para editar tabelas de exames.
-* Importação de tabelas por Excel.
+* Importação de tabelas por Excel/XML.
 * Base de conhecimento para agente IA.
-* Treinamento de respostas personalizadas.
-* Relatórios operacionais.
-* Indicadores de atendimento e conversão.
+* Respostas personalizadas por empresa.
+* Relatórios operacionais avançados.
+* Indicadores de conversão e follow-up.
 
 ---
 
@@ -389,4 +382,4 @@ Este repositório é um **case study público**.
 
 O código-fonte completo da aplicação permanece privado por conter regras de negócio, integrações, automações e estrutura comercial do produto.
 
-As imagens e dados apresentados devem utilizar informações fictícias ou anonimizadas.
+As imagens e dados apresentados neste case utilizam informações fictícias ou anonimizadas.
