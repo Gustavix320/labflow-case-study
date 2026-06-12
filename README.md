@@ -256,6 +256,13 @@ flowchart LR
 ---
 
 ## Screenshots
+### Cadastro e vínculo com empresa
+
+A plataforma possui uma tela de cadastro onde o usuário cria seu acesso vinculado a uma empresa, unidade e função operacional.
+
+Esse fluxo permite preparar a estrutura para uso multiempresa, separando usuários por organização e controlando permissões por perfil, como administrador ou recepção.
+
+![Cadastro no LabFlow](assets/screenshots/cadastro.png)
 
 ### Login
 
